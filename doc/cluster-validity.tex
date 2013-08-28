@@ -1,0 +1,36 @@
+\documentclass{article}
+\title{Cluster Validity}
+
+\begin{document}
+\maketitle
+\section{指標1}
+\begin{equation}
+WCD=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min(d(x_{ki},x_{kj}))}}{I_k}}}{K}
+\end{equation}
+\begin{equation}
+BCD=\frac{\sum_{k}^{K}{min(d(x_{ki},x_{lj}))}}{K}
+\end{equation}
+\begin{equation}
+Index1=\frac{WCD}{BCD}=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min(d(x_{ki},x_{kj}))}}{I_k}}}{\sum_{k}^{K}{min(d(x_{ki},x_{lj}))}}
+\end{equation}
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$  \ 。
+
+\section{指標2}
+\begin{equation}
+WCD=\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min(d(x_{ki},x_{kj}))}}}}{K}
+\end{equation}
+\begin{equation}
+WCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min(d(x_{ki},x_{kj}))}}}}{K}}
+\end{equation}
+\begin{equation}
+BCD=\frac{\sum_{k}^{K}{min(d(x_{ki},x_{kj}))}}{K}
+\end{equation}
+\begin{equation}
+BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{min(d(x_{ki},x_{kj}))}}{K}}
+\end{equation}
+\begin{equation}
+Index2=WCS . BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min(d(x_{ki},x_{kj}))}}}}{K} + \frac{\sum_{k}^{K}{min(d(x_{ki},x_{kj}))}}{K}}
+\end{equation}
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$  \ 。
+
+\end{document}
