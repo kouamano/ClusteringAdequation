@@ -8,12 +8,12 @@
 WCD=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}{K}
 \end{equation}
 \begin{equation}
-BCD=\frac{\sum_{k}^{K}{min_j(d(x_{ki},x_{lj}))}}{K}
+BCD=\frac{\sum_{k}^{K}{min_{ilj}(d(x_{ki},x_{lj}))}}{K}
 \end{equation}
 \begin{equation}
-min1=\frac{WCD}{BCD}=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}{\sum_{k}^{K}{min_j(d(x_{ki},x_{lj}))}}
+min1=\frac{WCD}{BCD}=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}{\sum_{k}^{K}{min_{ilj}(d(x_{ki},x_{lj}))}}
 \end{equation}
-ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(i)$に関する最小値: $min_j(f(j))$、距離関数:$f(x,y)$  \ 。
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、距離関数:$d(x,y)$  \ 。
 
 \section{指標2}
 \begin{equation}
@@ -23,26 +23,33 @@ WCD=\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}
 WCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}}}{K}}
 \end{equation}
 \begin{equation}
-BCD=\frac{\sum_{k}^{K}{min_j(d(x_{ki},x_{kj}))}}{K}
+BCD=\frac{\sum_{k}^{K}{min_{ilj}(d(x_{ki},x_{lj}))}}{K}
 \end{equation}
 \begin{equation}
-BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{min_j(d(x_{ki},x_{kj}))}}{K}}
+BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{min_{ilj}(d(x_{ki},x_{lj}))}}{K}}
 \end{equation}
 \begin{equation}
-min2=WCS . BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}}}{K} + \frac{\sum_{k}^{K}{min_j(d(x_{ki},x_{kj}))}}{K}}
+min2=WCS . BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}}}{K} + \frac{\sum_{k}^{K}{min_{ilj}(d(x_{ki},x_{lj}))}}{K}}
 \end{equation}
-ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(i)$に関する最小値: $min_j(f(i))$、距離関数:$f(x,y)$  \ 。
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(i))$、距離関数:$d(x,y)$  \ 。
 
 \section{指標3}
 \begin{equation}
 min3={\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}
 \end{equation}
-ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(i)$に関する最小値: $min_j(f(j))$、距離関数:$f(x,y)$  \ 。
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、距離関数:$d(x,y)$  \ 。
 
 \section{指標4}
 \begin{equation}
 min4={\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}}}{K}}
 \end{equation}
-ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(i)$に関する最小値: $min_j(f(j))$、距離関数:$f(x,y)$  \ 。
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、距離関数:$d(x,y)$  \ 。
+
+\section{指標5}
+\begin{equation}
+min5=\frac{ \sum_{k}^{K}{ \sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}  }  }{K}
+\end{equation}
+ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、距離関数:$d(x,y)$  \ 。
+
 
 \end{document}
