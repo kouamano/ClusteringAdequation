@@ -35,13 +35,13 @@ min2=WCS . BCS={\frac{1}{K}}^{\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}
 
 \section{指標3}
 \begin{equation}
-min3={\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}
+min3=\frac{\sum_{k}^{K}{\frac{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))}}{I_k}}}{K}
 \end{equation}
 ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、距離関数:$d(x,y)$  \ 。
 
 \section{指標4}
 \begin{equation}
-min4={\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(ds(x_{ki},x_{kj}))}}}}{K}}
+min4={\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(ds(x_{ki},x_{kj}))}}}}
 \end{equation}
 ただし、クラスタ数: $K$、クラスタID: $k$または$l$、サンプルID: $x_{ki}$または$x_{kj}$、クラスタ$k$のサンプル数: $I_k$、$f(j)$に関する最小値: $min_j(f(j))$、標準化距離関数:$ds(x,y)$  \ 。
 
