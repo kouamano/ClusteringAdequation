@@ -1,0 +1,71 @@
+
+INPUT Start(S), Goal(G), candidateMinMax(cMM), RNG
+OUTPUT MinMax(MM)
+
+SのノードからつながるノードN（n1,n2,n3...）をRNGから取り出す
+IF（n?が末端である，かつ，Gではない）
+	n?をNから削除
+end
+
+IF(n? == G)
+	n?をNから削除
+	IF( dis(S, n?) < cMM )
+		cMM <- dis(S, n?)
+	end
+end
+
+残ったNの個数分[routeMax, S, n1]，[routeMax, S, n2]．．．．．の配列を作成
+
+STACK作成
+S_max　<-　1000
+IF(routeMax　<　cMM)
+	条件を満たす配列のみSTACKに追加
+	S_now　<-　追加した配列の個数
+end
+
+While（STACK != 空）｛
+	STACKから配列をひとつ取り出す（A)
+	S_now = S_now - 1
+	Aのラストに入っているノード（ln）からつながるノードN（n0,n1,n2,n3..nZ）を取り出す
+
+	For(i = 0, i<Z, i++）{
+		IF（niが末端である，かつ，Gではない）
+			niをNから削除
+		elsif（niがAの履歴に含まれる）
+			niをNから削除
+		end
+	｝
+
+	A_afterという空の配列を用意
+
+	For(j=0, j<Z, j++){
+		IF(dis(ln, nj)　>　routeMax)
+			routeMax <- dis(ln, nj)
+			[routeMax, S,..., ln, nj]をA_afterに追加
+		else
+			[routeMax, S,..., ln, nj]をA_afterに追加
+		end
+	}
+
+	A_after内の各配列に対して以下のIFを実行
+	A_num <- A_afterの個数
+
+	For(k=0, k<A_num, k++){
+		IF(A_after[k][-1] == G)
+			IF (A_after[k][0] > routeMax)
+				routeMax <- A_after[k][0]
+		else
+			STACKへの追加候補として記録
+	}
+
+	STACKへの追加候補として記録された個数をXとする
+	IF (X + S_now > S_max)
+		STACKの更新
+		S_max = X + S_now +100
+
+	STACKへ追加候補を追加
+	S_now <- X + S_now
+｝
+
+cMMがMMになっている
+return MM
