@@ -1,0 +1,233 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      6223,        224]
+NotebookOptionsPosition[      5235,        183]
+NotebookOutlinePosition[      5600,        199]
+CellTagsIndexPosition[      5557,        196]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Some connectivity based cluster validity indices", "Title",
+ CellChangeTimes->{{3.608454046637841*^9, 3.608454081613864*^9}}],
+
+Cell["\<\
+minindex\:3092\:3064\:304f\:308b\:3002
+Input: dShortMat, Clustering\:306e\:7d50\:679c(\:30af\:30e9\:30b9\:30bfID\
+\:306e\:30ea\:30b9\:30c8\:306e\:30ea\:30b9\:30c8).
+output: \:30e1\:30f3\:30d0\:30fcID.\
+\>", "Text",
+ CellChangeTimes->{{3.6084541820845623`*^9, 3.608454329939084*^9}, {
+  3.608455473531831*^9, 3.608455490260921*^9}}],
+
+Cell["\<\
+\:6700\:7d42\:7684\:306b\:3001z[k] = x[k,minindex]; z: medoid of cluster k, \
+x: minindex-th member of cluster k\:3001\:3092\:6c42\:3081\:308b\:3002\
+\>", "Text",
+ CellChangeTimes->{{3.6084586093028307`*^9, 3.608458744249281*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["FindClusters Examples", "Section",
+ CellChangeTimes->{{3.606034047507456*^9, 3.6060340797165213`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{"-", "2"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "2"}]}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6060337085114603`*^9, 3.606033745733757*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", 
+     RowBox[{"-", "2"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"-", "2"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.606033746766032*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindClusters", "[", 
+  RowBox[{
+   RowBox[{"data", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "}"}]}], ",", "3", ",", 
+   RowBox[{"Method", "\[Rule]", "\"\<Agglomerate\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.606033793015903*^9, 3.60603383291689*^9}, {
+  3.6060340218805227`*^9, 3.606034026947016*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", "1", "}"}], ",", 
+   RowBox[{"{", "2", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.60603383365833*^9, 3.6060340278139544`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindClusters", "[", 
+  RowBox[{
+   RowBox[{"data", "\[Rule]", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "data", "]"}], "]"}]}], ",", "3", ",", 
+   RowBox[{"Method", "\[Rule]", "\"\<Agglomerate\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.606033793015903*^9, 3.60603383291689*^9}, {
+  3.6060340218805227`*^9, 3.606034026947016*^9}, {3.606034315138215*^9, 
+  3.6060343247976007`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", "2", "}"}], ",", 
+   RowBox[{"{", "3", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6060343261856318`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data2", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.606034350705545*^9, 3.6060343689268427`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.606034369695298*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindClusters", "[", 
+  RowBox[{
+   RowBox[{"data2", "\[Rule]", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "data2", "]"}], "]"}]}], ",", "3", ",", 
+   RowBox[{"Method", "\[Rule]", "\"\<Agglomerate\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.606033793015903*^9, 3.60603383291689*^9}, {
+  3.6060340218805227`*^9, 3.606034026947016*^9}, {3.606034315138215*^9, 
+  3.6060343247976007`*^9}, {3.606034388408544*^9, 3.6060343913206263`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", "2", "}"}], ",", 
+   RowBox[{"{", "3", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.606034392132298*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{740, 656},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (2013\:5e741\
+\:670828\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 131, 1, 148, "Title"],
+Cell[713, 25, 341, 7, 68, "Text"],
+Cell[1057, 34, 240, 4, 49, "Text"],
+Cell[CellGroupData[{
+Cell[1322, 42, 108, 1, 80, "Section"],
+Cell[CellGroupData[{
+Cell[1455, 47, 479, 16, 28, "Input"],
+Cell[1937, 65, 415, 15, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2389, 85, 371, 8, 28, "Input"],
+Cell[2763, 95, 245, 7, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3045, 107, 424, 9, 28, "Input"],
+Cell[3472, 118, 224, 7, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3733, 130, 392, 12, 28, "Input"],
+Cell[4128, 144, 331, 11, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4496, 160, 474, 9, 28, "Input"],
+Cell[4973, 171, 222, 7, 28, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
