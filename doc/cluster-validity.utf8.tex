@@ -50,7 +50,8 @@ min4={\frac{\sum_{k}^{K}{{\frac{1}{I_k}}^{\sum_{i}^{I_k}{min_j(d(x_{ki},x_{kj}))
 %mst1 = { \frac{\sum_{i}^{k}{\frac{\sum_{m,n;m\neq{}n}^{N_i}{dmst(x_{im},x_{in})}}{P_i}}}{K} }
 mst1 = { \sum_{j=1}^{k}{ \frac{\sum_{i=1}^{n_j}{p_{ij}}}{n_j} } }
 \end{equation}
-ただし、$dmst(n_i,n_j)$ : minimum spannig treeによって接続された$n_i$、$n_j$間のルート上のパスの総距離(接続されない場合0)、 $x_{im}$ : クラスタ$i$のm番目のデータポイント、$N_i$ : クラスタ$i$のデータ数、$P_i$ : クラスタ$i$のパス数、$K$ : クラスタ数。
+%ただし、$dmst(n_i,n_j)$ : minimum spannig treeによって接続された$n_i$、$n_j$間のルート上のパスの総距離(接続されない場合0)、 $x_{im}$ : クラスタ$i$のm番目のデータポイント、$N_i$ : クラスタ$i$のデータ数、$P_i$ : クラスタ$i$のパス数、$K$ : クラスタ数。
+ただし、$p_{ij}$ : クラスタ$j$のi番目のパスの長さ(MSTによる)、$n_j$ : クラスタ$j$のパス数。
 
 \section{指標6(mst2)}
 \begin{eqnarray}
@@ -60,9 +61,8 @@ mst2 = { \frac{mst1}{B} }
 ただし、$z_i$ : クラスタ$i$の重心にもっとも近いデータポイント、$P$ : $z$により構成されるMSTの総パス数。
 
 \section{指標7(mst3)}
-\begin{eqnarray}
-B = { \frac{\sum_{m,n}^{k}{dmst(z_m,z_n)}}{P} } \\
-mst2 = { \frac{mst1}{B} }
-\end{eqnarray}
+\begin{equation}
+mst3 = { \frac{ \sum_{i,j;i\neq{}j;i>j}^{k}{ \frac{ \sum_{s}^{mst(C_i\cup{}C_j).PATH}{ mst(C_i\cup{}C_j).Ps } }{mst(C_i\cup{}C_j).PATH} } }{ {}_{k}C_2 } }
+\end{equation}
 
 \end{document}
