@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13942,        422]
-NotebookOptionsPosition[     11888,        345]
-NotebookOutlinePosition[     12486,        369]
-CellTagsIndexPosition[     12401,        364]
+NotebookDataLength[     19851,        592]
+NotebookOptionsPosition[     17059,        491]
+NotebookOutlinePosition[     17657,        515]
+CellTagsIndexPosition[     17572,        510]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -238,13 +238,13 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Distmat of Medoids(Answer)", "Subsection",
+Cell["Distmat/MST of Medoids(Answer)", "Subsection",
  CellChangeTimes->{
   3.617572449233665*^9, {3.617606311949762*^9, 3.617606318452686*^9}, {
    3.619404390774899*^9, 3.619404395054826*^9}, {3.622354771779439*^9, 
    3.622354778797852*^9}, {3.622354835036767*^9, 3.622354839070304*^9}, {
    3.622355106273106*^9, 3.6223551077643967`*^9}, {3.622355204792021*^9, 
-   3.622355210898201*^9}}],
+   3.622355210898201*^9}, {3.622355919733551*^9, 3.622355921125646*^9}}],
 
 Cell[CellGroupData[{
 
@@ -319,27 +319,173 @@ Cell[BoxData[
  CellChangeTimes->{3.6223552809984703`*^9, 3.622355395521427*^9}]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"Export", "[", "]"}]], "Input",
- CellChangeTimes->{{3.622355423237351*^9, 3.6223554300521727`*^9}}]
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<data1.ans.med.dmat\>\"", ",", 
+   RowBox[{"medoidsDataAnsDmat", "[", "1", "]"}], ",", "\"\<TSV\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.622355423237351*^9, 3.6223554300521727`*^9}, {
+  3.622355584207286*^9, 3.622355610198236*^9}, {3.622355760090172*^9, 
+  3.622355792284396*^9}}],
+
+Cell[BoxData["\<\"data1.ans.med.dmat\"\>"], "Output",
+ CellChangeTimes->{{3.622355774062223*^9, 3.6223557934622517`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+\:5b9f\:884c\:30b3\:30de\:30f3\:30c9:
+MST dmat = data1.ans.med.dmat > data1.ans.med.MST\
+\>", "Text",
+ CellChangeTimes->{{3.6223558706507263`*^9, 3.622355884461995*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["MST of Medoids(Answer)", "Subsection",
+Cell["Distmat/MST of each cluster(Answer)", "Subsection",
  CellChangeTimes->{
   3.617572449233665*^9, {3.617606311949762*^9, 3.617606318452686*^9}, {
    3.619404390774899*^9, 3.619404395054826*^9}, {3.622354771779439*^9, 
    3.622354778797852*^9}, {3.622354835036767*^9, 3.622354839070304*^9}, {
-   3.622355106273106*^9, 3.6223551077643967`*^9}}],
+   3.622355106273106*^9, 3.6223551077643967`*^9}, {3.622355204792021*^9, 
+   3.622355210898201*^9}, {3.622355919733551*^9, 3.622355921125646*^9}, {
+   3.62235602365659*^9, 3.622356032219268*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataAnsCLsDmats", "[", "1", "]"}], "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"subDMat", "[", 
+       RowBox[{
+        RowBox[{"dataedt", "[", "1", "]"}], ",", "#"}], "]"}], "&"}], ",", 
+     RowBox[{"dataAnsCL", "[", "1", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.622356094858405*^9, 3.622356175916499*^9}, 
+   3.622356769486598*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MapIndexed", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"\"\<data1AnsDmat.cl-\>\"", "<>", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"#2", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}], "<>", "\"\<.dmat\>\""}], ",", 
+      "#", ",", "\"\<TSV\>\""}], "]"}], "&"}], ",", 
+   RowBox[{"dataAnsCLsDmats", "[", "1", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.622356383293852*^9, 3.6223564260596333`*^9}, {
+  3.622356457940351*^9, 3.622356463514616*^9}, {3.622356504319106*^9, 
+  3.622356602056671*^9}, {3.622356655071286*^9, 3.622356702109981*^9}, {
+  3.622357072649138*^9, 3.622357078019244*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"data1AnsDmat.cl-1.dmat\"\>", 
+   ",", "\<\"data1AnsDmat.cl-2.dmat\"\>", 
+   ",", "\<\"data1AnsDmat.cl-3.dmat\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.622356650103611*^9, 3.622356703076457*^9}, 
+   3.6223570799124613`*^9}]
+}, Open  ]],
 
 Cell["\<\
 \:5b9f\:884c\:30b3\:30de\:30f3\:30c9:
-MST dmat=data1.edt\
+for file in data1AnsDmat.cl-*.dmat; do MST dmat=$file > $file.MST; done\
 \>", "Text",
- CellChangeTimes->{{3.621744812291997*^9, 3.621744886765321*^9}, {
-  3.622355148224745*^9, 3.622355156039878*^9}}]
-}, Open  ]]
+ CellChangeTimes->{{3.6223573202762527`*^9, 3.622357335376627*^9}, {
+  3.6223574736347218`*^9, 3.622357484349128*^9}}]
+}, Open  ]],
+
+Cell["Read MST of Medoids (Answer)", "Subsection",
+ CellChangeTimes->{{3.622357415096932*^9, 3.622357437811957*^9}, {
+  3.622357527215197*^9, 3.622357532698166*^9}}],
+
+Cell["Read MST of each cluster (Answer)", "Subsection",
+ CellChangeTimes->{{3.622357415096932*^9, 3.622357437811957*^9}, {
+  3.622357527215197*^9, 3.6223575544545193`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Data import(A)", "Subsection",
+ CellChangeTimes->{
+  3.617572449233665*^9, {3.617606311949762*^9, 3.617606318452686*^9}, {
+   3.619404390774899*^9, 3.619404395054826*^9}, {3.6223575932927856`*^9, 
+   3.622357594787431*^9}, {3.62235773383661*^9, 3.622357734225361*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"classNum", "=", 
+  RowBox[{"Range", "[", 
+   RowBox[{"2", ",", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"Length", "[", 
+      RowBox[{"dataAnstsv", "[", "1", "]"}], "]"}], "]"}]}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.62235773776746*^9, 3.622357771826421*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", ",", "9", 
+   ",", "10", ",", "11", ",", "12", ",", "13", ",", "14", ",", "15", ",", 
+   "16", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{3.622357774002686*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"targetFiles", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\"\<data1.cl-A.\>\"", "<>", 
+      RowBox[{"ToString", "[", "#", "]"}]}], "&"}], ",", "classNum"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.622357658583953*^9, 3.622357665869006*^9}, 
+   3.622357791012169*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"data1.cl-A.2\"\>", ",", "\<\"data1.cl-A.3\"\>", 
+   ",", "\<\"data1.cl-A.4\"\>", ",", "\<\"data1.cl-A.5\"\>", 
+   ",", "\<\"data1.cl-A.6\"\>", ",", "\<\"data1.cl-A.7\"\>", 
+   ",", "\<\"data1.cl-A.8\"\>", ",", "\<\"data1.cl-A.9\"\>", 
+   ",", "\<\"data1.cl-A.10\"\>", ",", "\<\"data1.cl-A.11\"\>", 
+   ",", "\<\"data1.cl-A.12\"\>", ",", "\<\"data1.cl-A.13\"\>", 
+   ",", "\<\"data1.cl-A.14\"\>", ",", "\<\"data1.cl-A.15\"\>", 
+   ",", "\<\"data1.cl-A.16\"\>", ",", "\<\"data1.cl-A.17\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.622357792236224*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataCLAList", "[", "1", "]"}], "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"tableToCluster", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{"#", ",", "\"\<TSV\>\""}], "]"}], "]"}], "&"}], ",", 
+     "targetFiles"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6223579544757032`*^9, 3.622357994959176*^9}}]
+}, Open  ]],
+
+Cell["Medoids(A)", "Subsection",
+ CellChangeTimes->{
+  3.617572449233665*^9, {3.617606311949762*^9, 3.617606318452686*^9}, {
+   3.619404390774899*^9, 3.619404395054826*^9}, {3.622354771779439*^9, 
+   3.622354778797852*^9}, {3.622354835036767*^9, 3.622354839070304*^9}, {
+   3.622358120239153*^9, 3.6223581208561983`*^9}}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -355,15 +501,15 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3622387640-6562645"->{
-  Cell[9036, 256, 123, 2, 40, "Print",
+  Cell[9086, 256, 123, 2, 40, "Print",
    CellTags->"Info3622387640-6562645"],
-  Cell[9162, 260, 1128, 30, 22, "Print",
+  Cell[9212, 260, 1128, 30, 22, "Print",
    CellTags->"Info3622387640-6562645"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3622387640-6562645", 12217, 356}
+ {"Info3622387640-6562645", 17388, 502}
  }
 *)
 (*NotebookFileOutline
@@ -402,26 +548,50 @@ Cell[8302, 231, 130, 3, 28, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8481, 240, 387, 6, 44, "Subsection"],
+Cell[8481, 240, 437, 6, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[8893, 250, 118, 2, 28, "Input"],
+Cell[8943, 250, 118, 2, 28, "Input"],
 Cell[CellGroupData[{
-Cell[9036, 256, 123, 2, 40, "Print",
+Cell[9086, 256, 123, 2, 40, "Print",
  CellTags->"Info3622387640-6562645"],
-Cell[9162, 260, 1128, 30, 22, "Print",
+Cell[9212, 260, 1128, 30, 22, "Print",
  CellTags->"Info3622387640-6562645"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10339, 296, 346, 8, 28, "Input"],
-Cell[10688, 306, 455, 12, 28, "Output"]
-}, Open  ]],
-Cell[11158, 321, 122, 2, 28, "Input"]
+Cell[10389, 296, 346, 8, 28, "Input"],
+Cell[10738, 306, 455, 12, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11317, 328, 333, 5, 44, "Subsection"],
-Cell[11653, 335, 195, 5, 49, "Text"]
-}, Open  ]]
+Cell[11230, 323, 342, 7, 28, "Input"],
+Cell[11575, 332, 121, 1, 28, "Output"]
+}, Open  ]],
+Cell[11711, 336, 179, 4, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11927, 345, 491, 7, 44, "Subsection"],
+Cell[12421, 354, 424, 12, 28, "Input"],
+Cell[CellGroupData[{
+Cell[12870, 370, 676, 15, 46, "Input"],
+Cell[13549, 387, 272, 6, 28, "Output"]
+}, Open  ]],
+Cell[13836, 396, 252, 5, 49, "Text"]
+}, Open  ]],
+Cell[14103, 404, 165, 2, 44, "Subsection"],
+Cell[14271, 408, 172, 2, 36, "Subsection"],
+Cell[CellGroupData[{
+Cell[14468, 414, 274, 4, 36, "Subsection"],
+Cell[CellGroupData[{
+Cell[14767, 422, 289, 8, 28, "Input"],
+Cell[15059, 432, 274, 6, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15370, 443, 320, 9, 28, "Input"],
+Cell[15693, 454, 598, 11, 63, "Output"]
+}, Open  ]],
+Cell[16306, 468, 389, 11, 28, "Input"]
+}, Open  ]],
+Cell[16710, 482, 321, 5, 44, "Subsection"]
 }, Open  ]]
 }, Open  ]]
 }
