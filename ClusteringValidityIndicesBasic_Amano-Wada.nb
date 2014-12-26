@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     56959,       1555]
-NotebookOptionsPosition[     53185,       1441]
-NotebookOutlinePosition[     53660,       1459]
-CellTagsIndexPosition[     53617,       1456]
+NotebookDataLength[     58559,       1586]
+NotebookOptionsPosition[     54659,       1468]
+NotebookOutlinePosition[     55103,       1485]
+CellTagsIndexPosition[     55060,       1482]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,23 +31,41 @@ Cell["Program ", "Section",
 
 Cell[CellGroupData[{
 
+Cell[BoxData[
+ RowBox[{"$CharacterEncoding", "=", "\"\<UTF-8\>\""}]], "Input",
+ CellChangeTimes->{{3.628558544568062*^9, 3.628558553818548*^9}}],
+
+Cell[BoxData["\<\"UTF-8\"\>"], "Output",
+ CellChangeTimes->{3.628558555096733*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Get", "[", 
+  "\"\</home/kamano/gitsrc/MATH_SCRIPT/SCRIPTS/Cluster+Distance_Operations.\
+txt\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.628558517751883*^9, 3.62855853671167*^9}}],
+
+Cell[CellGroupData[{
+
 Cell["for each cluster or set of vectors", "Subsection",
  CellChangeTimes->{{3.576482348223939*^9, 3.5764823594609537`*^9}, {
    3.5764824527837887`*^9, 3.576482464249036*^9}, 3.576540803288073*^9}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"averageDist", "[", "l_", "]"}], ":=", 
-  RowBox[{"Mean", "[", 
-   RowBox[{"Map", "[", 
-    RowBox[{
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"averageDist", "[", "l_", "]"}], ":=", 
+   RowBox[{"Mean", "[", 
+    RowBox[{"Map", "[", 
      RowBox[{
-      RowBox[{"EuclideanDistance", "[", 
-       RowBox[{"#", ",", 
-        RowBox[{"Mean", "[", "l", "]"}]}], "]"}], "&"}], ",", "l"}], "]"}], 
-   "]"}]}]], "Input",
+      RowBox[{
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"Mean", "[", "l", "]"}]}], "]"}], "&"}], ",", "l"}], "]"}], 
+    "]"}]}], "*)"}]], "Input",
  CellChangeTimes->{{3.564882850625701*^9, 3.564882912746591*^9}, {
-  3.564882942906044*^9, 3.564882979647833*^9}}]
+  3.564882942906044*^9, 3.564882979647833*^9}, {3.628558573236825*^9, 
+  3.628558576220037*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -76,182 +94,199 @@ d : \:5404\:30af\:30e9\:30b9\:30bf\:4e2d\:5fc3\:304b\:3089\:5168\:30b5\:30f3\
    3.578216377990156*^9}, {3.582450753646706*^9, 3.582450761957169*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"checkClDepth", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"If", "[", 
-   RowBox[{
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"checkClDepth", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"If", "[", 
     RowBox[{
-     RowBox[{"Length", "[", 
-      RowBox[{"Dimensions", "[", 
-       RowBox[{"Flatten", "[", 
-        RowBox[{"cl", ",", "1"}], "]"}], "]"}], "]"}], "\[Equal]", "2"}], ",",
-     "cl", ",", "None"}], "]"}]}]], "Input",
+     RowBox[{
+      RowBox[{"Length", "[", 
+       RowBox[{"Dimensions", "[", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"cl", ",", "1"}], "]"}], "]"}], "]"}], "\[Equal]", "2"}], 
+     ",", "cl", ",", "None"}], "]"}]}], "*)"}]], "Input",
  CellChangeTimes->{{3.575790698055748*^9, 3.575790743999716*^9}, {
   3.575790804043503*^9, 3.575790804994673*^9}, {3.575790878761644*^9, 
   3.575790890417403*^9}, {3.575791084923374*^9, 3.575791135468206*^9}, {
-  3.575791320013309*^9, 3.5757913237567863`*^9}}],
+  3.575791320013309*^9, 3.5757913237567863`*^9}, {3.6285585848491793`*^9, 
+  3.6285585878038607`*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"numOfClusters", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Length", "[", "cl", "]"}], " ", 
-  RowBox[{"(*", "N", "*)"}]}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"numOfClusters", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Length", "[", "cl", "]"}]}], " ", 
+  RowBox[{"(*", "N", "*)"}], "*)"}]], "Input",
  CellChangeTimes->{{3.5757902396277437`*^9, 3.5757902662345533`*^9}, {
   3.575790428523779*^9, 3.575790429760022*^9}, {3.575790478552174*^9, 
   3.575790490419772*^9}, {3.575790545661222*^9, 3.575790555683552*^9}, {
   3.575790633719293*^9, 3.575790635665865*^9}, {3.5757906744813957`*^9, 
-  3.57579069203159*^9}, {3.5824503979188957`*^9, 3.5824504043833103`*^9}}],
+  3.57579069203159*^9}, {3.5824503979188957`*^9, 3.5824504043833103`*^9}, {
+  3.628558589576976*^9, 3.6285585922302523`*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"numOfClusterMembers", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Map", "[", 
-   RowBox[{
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"numOfClusterMembers", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Map", "[", 
     RowBox[{
-     RowBox[{"Length", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}], " ", 
-  RowBox[{"(*", "Cn", "*)"}]}]], "Input",
+     RowBox[{
+      RowBox[{"Length", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}]}], " ", 
+  RowBox[{"(*", "Cn", "*)"}], "*)"}]], "Input",
  CellChangeTimes->{{3.575790652522554*^9, 3.575790667558311*^9}, {
   3.575791333058549*^9, 3.575791344973501*^9}, {3.582450406355076*^9, 
-  3.582450425839944*^9}}],
+  3.582450425839944*^9}, {3.628558595031662*^9, 3.628558597493492*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"centerOfAllClSamples", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Mean", "[", 
-   RowBox[{"Flatten", "[", 
-    RowBox[{"cl", ",", "1"}], "]"}], "]"}], " ", 
+ RowBox[{"(*", 
   RowBox[{
-  "(*", "\:5168\:30b5\:30f3\:30d7\:30eb\:4e2d\:5fc3", "*)"}]}]], "Input",
+   RowBox[{"centerOfAllClSamples", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Mean", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"cl", ",", "1"}], "]"}], "]"}]}], " ", 
+  RowBox[{"(*", "\:5168\:30b5\:30f3\:30d7\:30eb\:4e2d\:5fc3", "*)"}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.575791395031114*^9, 3.5757914153539658`*^9}, {
   3.5757915560766077`*^9, 3.575791564164692*^9}, {3.576482422645708*^9, 
   3.5764824236527967`*^9}, {3.5824504279138002`*^9, 3.582450456444664*^9}, {
-  3.5824505180295057`*^9, 3.582450538919195*^9}}],
+  3.5824505180295057`*^9, 3.582450538919195*^9}, {3.62855860036659*^9, 
+  3.6285586026868773`*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"radiusOfAllClSamples", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Module", "[", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"{", "center", "}"}], ",", "\[IndentingNewLine]", 
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"radiusOfAllClSamples", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"center", "=", 
-      RowBox[{"Mean", "[", 
-       RowBox[{"Flatten", "[", 
-        RowBox[{"cl", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     
-     RowBox[{"Mean", "[", 
-      RowBox[{"Map", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"EuclideanDistance", "[", 
-          RowBox[{"center", ",", "#"}], "]"}], "&"}], ",", 
+     RowBox[{"{", "center", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"center", "=", 
+       RowBox[{"Mean", "[", 
         RowBox[{"Flatten", "[", 
-         RowBox[{"cl", ",", "1"}], "]"}]}], "]"}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}], " ", 
-  RowBox[{"(*", "R", "*)"}]}]], "Input",
+         RowBox[{"cl", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EuclideanDistance", "[", 
+           RowBox[{"center", ",", "#"}], "]"}], "&"}], ",", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"cl", ",", "1"}], "]"}]}], "]"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], " ", 
+  RowBox[{"(*", "R", "*)"}], "*)"}]], "Input",
  CellChangeTimes->{{3.575791644727861*^9, 3.575791762362755*^9}, {
    3.575791859016614*^9, 3.575791986188355*^9}, {3.576482429311482*^9, 
    3.576482429703821*^9}, {3.582450465464149*^9, 3.582450467537822*^9}, 
-   3.5824505087288103`*^9}],
+   3.5824505087288103`*^9, {3.628558605245228*^9, 3.628558607853632*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"centerOfEachClusters", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Map", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"Mean", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}], " ", 
+ RowBox[{"(*", 
   RowBox[{
-  "(*", "\:5404\:30af\:30e9\:30b9\:30bf\:306e\:4e2d\:5fc3", "*)"}]}]], "Input",\
-
+   RowBox[{"centerOfEachClusters", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Mean", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}]}], " ", 
+  RowBox[{"(*", "\:5404\:30af\:30e9\:30b9\:30bf\:306e\:4e2d\:5fc3", "*)"}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.575792417431027*^9, 3.575792433716154*^9}, {
   3.5757924929362183`*^9, 3.575792502051162*^9}, {3.5824505486915817`*^9, 
-  3.582450576240093*^9}}],
+  3.582450576240093*^9}, {3.628558610837092*^9, 3.628558613562415*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"radiusOfEachClusters", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Module", "[", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"numCl", ",", "eachcenter"}], "}"}], ",", "\[IndentingNewLine]", 
-    
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"radiusOfEachClusters", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"numCl", "=", 
-      RowBox[{"Length", "[", "cl", "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"eachcenter", "=", 
-      RowBox[{"Map", "[", 
-       RowBox[{
+     RowBox[{"{", 
+      RowBox[{"numCl", ",", "eachcenter"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"numCl", "=", 
+       RowBox[{"Length", "[", "cl", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"eachcenter", "=", 
+       RowBox[{"Map", "[", 
         RowBox[{
-         RowBox[{"Mean", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Mean", "[", "#", "]"}], "&"}], ",", "cl"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"EuclideanDistance", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"eachcenter", "[", 
+               RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "&"}], ",", 
+           RowBox[{"cl", "[", 
+            RowBox[{"[", "n", "]"}], "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "numCl"}], "}"}]}], "]"}], "*)"}], 
+      "\[IndentingNewLine]", 
       RowBox[{"Table", "[", 
        RowBox[{
-        RowBox[{"Map", "[", 
-         RowBox[{
+        RowBox[{
+         RowBox[{"Map", "[", 
           RowBox[{
-           RowBox[{"EuclideanDistance", "[", 
-            RowBox[{"#", ",", 
-             RowBox[{"eachcenter", "[", 
-              RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "&"}], ",", 
-          RowBox[{"cl", "[", 
-           RowBox[{"[", "n", "]"}], "]"}]}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"EuclideanDistance", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"eachcenter", "[", 
+               RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "&"}], ",", 
+           RowBox[{"cl", "[", 
+            RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "//", "Mean"}], ",", 
         RowBox[{"{", 
-         RowBox[{"n", ",", "numCl"}], "}"}]}], "]"}], "*)"}], 
-     "\[IndentingNewLine]", 
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"EuclideanDistance", "[", 
-            RowBox[{"#", ",", 
-             RowBox[{"eachcenter", "[", 
-              RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "&"}], ",", 
-          RowBox[{"cl", "[", 
-           RowBox[{"[", "n", "]"}], "]"}]}], "]"}], "//", "Mean"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"n", ",", "numCl"}], "}"}]}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}], " ", 
-  RowBox[{"(*", "rn", "*)"}]}]], "Input",
+         RowBox[{"n", ",", "numCl"}], "}"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], " ", 
+  RowBox[{"(*", "rn", "*)"}], "*)"}]], "Input",
  CellChangeTimes->{{3.5757923244746923`*^9, 3.5757923382231903`*^9}, {
   3.5757923733984833`*^9, 3.5757923845184593`*^9}, {3.575792515506851*^9, 
   3.575792536907487*^9}, {3.5757925738721647`*^9, 3.575792727327949*^9}, {
   3.575792810642902*^9, 3.5757929713937263`*^9}, {3.58245057929348*^9, 
-  3.582450588001915*^9}, {3.58245061856131*^9, 3.582450618658012*^9}}],
+  3.582450588001915*^9}, {3.58245061856131*^9, 3.582450618658012*^9}, {
+  3.628558615714161*^9, 3.628558618761922*^9}}],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"distancesFromEachClToCenter", "[", "cl_List", "]"}], ":=", 
-  RowBox[{"Module", "[", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"totalcenter", ",", "eachclcenter"}], "}"}], ",", 
-    "\[IndentingNewLine]", 
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"distancesFromEachClToCenter", "[", "cl_List", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"totalcenter", "=", 
-      RowBox[{"centerOfAllClSamples", "[", "cl", "]"}]}], ";", 
+     RowBox[{"{", 
+      RowBox[{"totalcenter", ",", "eachclcenter"}], "}"}], ",", 
      "\[IndentingNewLine]", 
-     RowBox[{"eachclcenter", "=", 
-      RowBox[{"centerOfEachClusters", "[", "cl", "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Map", "[", 
-      RowBox[{
+     RowBox[{
+      RowBox[{"totalcenter", "=", 
+       RowBox[{"centerOfAllClSamples", "[", "cl", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"eachclcenter", "=", 
+       RowBox[{"centerOfEachClusters", "[", "cl", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Map", "[", 
        RowBox[{
-        RowBox[{"EuclideanDistance", "[", 
-         RowBox[{"totalcenter", ",", "#"}], "]"}], "&"}], ",", 
-       "eachclcenter"}], "]"}]}]}], "\[IndentingNewLine]", "]"}], " ", 
-  RowBox[{"(*", "dn", "*)"}]}]], "Input",
+        RowBox[{
+         RowBox[{"EuclideanDistance", "[", 
+          RowBox[{"totalcenter", ",", "#"}], "]"}], "&"}], ",", 
+        "eachclcenter"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], " ", 
+  RowBox[{"(*", "dn", "*)"}], "*)"}]], "Input",
  CellChangeTimes->{{3.5757930654438477`*^9, 3.575793282564644*^9}, {
   3.5764835468621607`*^9, 3.576483547254286*^9}, {3.58245065765455*^9, 
-  3.582450662621997*^9}}],
+  3.582450662621997*^9}, {3.628558621901772*^9, 3.628558625152014*^9}}],
 
-Cell["\<\
-d[cl_List] := Tr[distancesFromEachClToCenter[cl]] / Length[cl]\
-\>", "Text",
- CellChangeTimes->{{3.582450813729309*^9, 3.582450901184945*^9}}]
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"d", "[", "cl_List", "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"Tr", "[", 
+     RowBox[{"distancesFromEachClToCenter", "[", "cl", "]"}], "]"}], " ", "/",
+     " ", 
+    RowBox[{"Length", "[", "cl", "]"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.582450813729309*^9, 3.582450901184945*^9}, {
+  3.6285586700564623`*^9, 3.6285586700635643`*^9}, {3.6285587654177732`*^9, 
+  3.628558767839428*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -451,9 +486,8 @@ Cell["Varidity index", "Section",
 
 Cell[CellGroupData[{
 
-Cell["\<\
-Amano and Wada\[CloseCurlyQuote]s Index for clustered data\
-\>", "Subsection",
+Cell["Amano and Wada\[CloseCurlyQuote]s Index for clustered data", \
+"Subsection",
  CellChangeTimes->{{3.576485227074932*^9, 3.576485248797326*^9}, {
   3.5764852793187733`*^9, 3.576485285196251*^9}}],
 
@@ -547,11 +581,10 @@ Cell[BoxData[
  CellChangeTimes->{{3.576542378407402*^9, 3.576542378479108*^9}, {
    3.576542410199942*^9, 3.576542414722107*^9}, 3.576542448864208*^9}],
 
-Cell["\<\
-clusteringAdequationS\:3068\:540c\:3058\:30d7\:30ed\:30b0\:30e9\:30e0\:3001\
-\:30af\:30e9\:30b9\:30bf\:30fc\:6570\:3092\:30da\:30ca\:30eb\:30c6\:30a3\:306b\
-\:3059\:308b(\:5024\:304c\:5c0f\:3055\:3044\:307b\:3069\:826f\:3044):\
-\>", "Text",
+Cell["clusteringAdequationS\:3068\:540c\:3058\:30d7\:30ed\:30b0\:30e9\:30e0\
+\:3001\:30af\:30e9\:30b9\:30bf\:30fc\:6570\:3092\:30da\:30ca\:30eb\:30c6\:30a3\
+\:306b\:3059\:308b(\:5024\:304c\:5c0f\:3055\:3044\:307b\:3069\:826f\:3044):", \
+"Text",
  CellChangeTimes->{{3.576483407819312*^9, 3.576483419604074*^9}, {
   3.576541067962134*^9, 3.5765411025438223`*^9}, {3.581233444914815*^9, 
   3.5812334521371317`*^9}}],
@@ -705,9 +738,7 @@ Cell[TextData[{
     SuperscriptBox["N", 
      RowBox[{"1", "-", 
       RowBox[{"(", 
-       RowBox[{"d", "/", "R"}], ")"}]}]], "\[CenterDot]"}], TraditionalForm]],
-  
-  FormatType->"TraditionalForm"],
+       RowBox[{"d", "/", "R"}], ")"}]}]], "\[CenterDot]"}], TraditionalForm]]],
  Cell[BoxData[
   FormBox[
    SubscriptBox["\[CapitalPi]", "n"], TraditionalForm]]],
@@ -1298,11 +1329,9 @@ Cell[BoxData[
     RowBox[{"meanRadOfCl", "/", "meanRadTotal"}], ")"}]}]}]], "Input",
  CellChangeTimes->{{3.576542468988604*^9, 3.576542505373575*^9}}],
 
-Cell["\<\
-clusteringAdequationD\:3068\:540c\:3058\:30d7\:30ed\:30b0\:30e9\:30e0\:3001\
-\:30af\:30e9\:30b9\:30bf\:30fc\:6570\:3092\:30da\:30ca\:30eb\:30c6\:30a3\:306b\
-\:3059\:308b:\
-\>", "Text",
+Cell["clusteringAdequationD\:3068\:540c\:3058\:30d7\:30ed\:30b0\:30e9\:30e0\
+\:3001\:30af\:30e9\:30b9\:30bf\:30fc\:6570\:3092\:30da\:30ca\:30eb\:30c6\:30a3\
+\:306b\:3059\:308b:", "Text",
  CellChangeTimes->{{3.576483407819312*^9, 3.576483419604074*^9}, {
   3.5764835148743*^9, 3.576483515956132*^9}, {3.5765410945632563`*^9, 
   3.5765411085487423`*^9}}],
@@ -1369,9 +1398,7 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["\<\
-Silhouette for clustered data (R\:3067\:5b9f\:88c5)\
-\>", "Subsection",
+Cell["Silhouette for clustered data (R\:3067\:5b9f\:88c5)", "Subsection",
  CellChangeTimes->{{3.576485211468235*^9, 3.57648521146999*^9}, 
    3.576485257862217*^9, {3.576486203738481*^9, 3.5764862117549667`*^9}, {
    3.576542681503726*^9, 3.576542691461727*^9}, {3.577602866616708*^9, 
@@ -1440,12 +1467,11 @@ Cell["Test programming", "Section",
 }, Open  ]]
 },
 WindowSize->{928, 766},
-WindowMargins->{{59, Automatic}, {Automatic, 0}},
+WindowMargins->{{53, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> True}},
 Magnification:>1.25 Inherited,
-FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (2011\:5e744\
-\:67085\:65e5)",
-StyleDefinitions->"Default.nb",
-PrivateNotebookOptions -> {"VersionedStylesheet" -> {"Default.nb"[8.] -> True}}
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
 
@@ -1459,103 +1485,108 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 127, 1, 154, "Title"],
+Cell[579, 22, 127, 1, 184, "Title"],
 Cell[CellGroupData[{
-Cell[731, 27, 143, 2, 83, "Section"],
+Cell[731, 27, 143, 2, 92, "Section"],
 Cell[CellGroupData[{
-Cell[899, 33, 198, 2, 42, "Subsection"],
-Cell[1100, 37, 429, 12, 33, "Input"]
+Cell[899, 33, 144, 2, 54, "Input"],
+Cell[1046, 37, 82, 1, 54, "Output"]
+}, Open  ]],
+Cell[1143, 41, 204, 4, 78, "Input"],
+Cell[CellGroupData[{
+Cell[1372, 49, 198, 2, 49, "Subsection"],
+Cell[1573, 53, 512, 14, 36, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1566, 54, 108, 1, 42, "Subsection"],
-Cell[1677, 57, 1111, 18, 137, "Text"],
-Cell[2791, 77, 606, 14, 33, "Input"],
-Cell[3400, 93, 528, 9, 33, "Input"],
-Cell[3931, 104, 413, 10, 33, "Input"],
-Cell[4347, 116, 543, 11, 36, "Input"],
-Cell[4893, 129, 1005, 25, 110, "Input"],
-Cell[5901, 156, 467, 12, 36, "Input"],
-Cell[6371, 170, 2021, 52, 148, "Input"],
-Cell[8395, 224, 978, 24, 129, "Input"],
-Cell[9376, 250, 152, 3, 32, "Text"]
+Cell[2122, 72, 108, 1, 49, "Subsection"],
+Cell[2233, 75, 1111, 18, 150, "Text"],
+Cell[3347, 95, 693, 16, 36, "Input"],
+Cell[4043, 113, 606, 11, 36, "Input"],
+Cell[4652, 126, 489, 11, 36, "Input"],
+Cell[5144, 139, 622, 13, 61, "Input"],
+Cell[5769, 154, 1088, 25, 152, "Input"],
+Cell[6860, 181, 541, 12, 61, "Input"],
+Cell[7404, 195, 2134, 53, 198, "Input"],
+Cell[9541, 250, 1068, 25, 175, "Input"],
+Cell[10612, 277, 454, 11, 36, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9565, 258, 148, 2, 42, "Subsection"],
-Cell[9716, 262, 1083, 30, 53, "Input"],
-Cell[10802, 294, 1104, 30, 53, "Input"],
-Cell[11909, 326, 1007, 27, 53, "Input"],
-Cell[12919, 355, 1570, 40, 91, "Input"],
-Cell[14492, 397, 1912, 45, 148, "Input"]
+Cell[11103, 293, 148, 2, 49, "Subsection"],
+Cell[11254, 297, 1083, 30, 83, "Input"],
+Cell[12340, 329, 1104, 30, 83, "Input"],
+Cell[13447, 361, 1007, 27, 60, "Input"],
+Cell[14457, 390, 1570, 40, 106, "Input"],
+Cell[16030, 432, 1912, 45, 175, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16453, 448, 99, 1, 83, "Section"],
+Cell[17991, 483, 99, 1, 92, "Section"],
 Cell[CellGroupData[{
-Cell[16577, 453, 205, 4, 42, "Subsection"],
-Cell[16785, 459, 305, 6, 34, "Text"],
-Cell[17093, 467, 1132, 19, 157, "Text"],
+Cell[18115, 488, 199, 3, 49, "Subsection"],
+Cell[18317, 493, 305, 6, 42, "Text"],
+Cell[18625, 501, 1132, 19, 196, "Text"],
 Cell[CellGroupData[{
-Cell[18250, 490, 220, 3, 32, "Subsubsection"],
-Cell[18473, 495, 255, 3, 35, "Text"],
-Cell[18731, 500, 439, 12, 36, "Text"],
-Cell[19173, 514, 697, 19, 53, "Input"],
-Cell[19873, 535, 461, 12, 53, "Input"],
-Cell[20337, 549, 418, 7, 35, "Text"],
-Cell[20758, 558, 423, 15, 36, "Text"],
-Cell[21184, 575, 726, 20, 72, "Input"],
-Cell[21913, 597, 665, 16, 53, "Input"],
-Cell[22581, 615, 325, 5, 35, "Text"],
-Cell[22909, 622, 518, 17, 36, "Text"],
-Cell[23430, 641, 809, 22, 72, "Input"],
-Cell[24242, 665, 766, 19, 53, "Input"],
-Cell[25011, 686, 153, 2, 35, "Text"],
-Cell[25167, 690, 888, 30, 36, "Text"],
-Cell[26058, 722, 112, 1, 34, "Text"],
-Cell[26173, 725, 353, 12, 52, "Text"],
-Cell[26529, 739, 670, 17, 53, "Input"],
-Cell[27202, 758, 1458, 33, 129, "Input"],
-Cell[28663, 793, 654, 19, 52, "Text"],
-Cell[29320, 814, 897, 22, 91, "Input"],
-Cell[30220, 838, 1779, 42, 186, "Input"],
-Cell[32002, 882, 736, 19, 54, "Text"],
-Cell[32741, 903, 964, 24, 72, "Input"],
-Cell[33708, 929, 1850, 44, 186, "Input"],
-Cell[35561, 975, 866, 21, 54, "Text"],
-Cell[36430, 998, 1151, 29, 72, "Input"],
-Cell[37584, 1029, 2051, 50, 205, "Input"],
-Cell[39638, 1081, 134, 1, 34, "Text"],
-Cell[39775, 1084, 429, 12, 52, "Text"],
-Cell[40207, 1098, 700, 17, 53, "Input"],
-Cell[40910, 1117, 1481, 33, 129, "Input"],
-Cell[42394, 1152, 679, 18, 52, "Text"],
-Cell[43076, 1172, 919, 22, 91, "Input"],
-Cell[43998, 1196, 1801, 42, 186, "Input"]
+Cell[19782, 524, 220, 3, 40, "Subsubsection"],
+Cell[20005, 529, 255, 3, 43, "Text"],
+Cell[20263, 534, 439, 12, 45, "Text"],
+Cell[20705, 548, 697, 19, 66, "Input"],
+Cell[21405, 569, 461, 12, 66, "Input"],
+Cell[21869, 583, 412, 6, 43, "Text"],
+Cell[22284, 591, 423, 15, 45, "Text"],
+Cell[22710, 608, 726, 20, 90, "Input"],
+Cell[23439, 630, 665, 16, 66, "Input"],
+Cell[24107, 648, 325, 5, 43, "Text"],
+Cell[24435, 655, 518, 17, 45, "Text"],
+Cell[24956, 674, 809, 22, 90, "Input"],
+Cell[25768, 698, 766, 19, 66, "Input"],
+Cell[26537, 719, 153, 2, 43, "Text"],
+Cell[26693, 723, 852, 28, 45, "Text"],
+Cell[27548, 753, 112, 1, 42, "Text"],
+Cell[27663, 756, 353, 12, 65, "Text"],
+Cell[28019, 770, 670, 17, 66, "Input"],
+Cell[28692, 789, 1458, 33, 161, "Input"],
+Cell[30153, 824, 654, 19, 65, "Text"],
+Cell[30810, 845, 897, 22, 113, "Input"],
+Cell[31710, 869, 1779, 42, 232, "Input"],
+Cell[33492, 913, 736, 19, 67, "Text"],
+Cell[34231, 934, 964, 24, 90, "Input"],
+Cell[35198, 960, 1850, 44, 232, "Input"],
+Cell[37051, 1006, 866, 21, 67, "Text"],
+Cell[37920, 1029, 1151, 29, 90, "Input"],
+Cell[39074, 1060, 2051, 50, 256, "Input"],
+Cell[41128, 1112, 134, 1, 42, "Text"],
+Cell[41265, 1115, 429, 12, 65, "Text"],
+Cell[41697, 1129, 700, 17, 66, "Input"],
+Cell[42400, 1148, 1481, 33, 161, "Input"],
+Cell[43884, 1183, 679, 18, 65, "Text"],
+Cell[44566, 1203, 919, 22, 113, "Input"],
+Cell[45488, 1227, 1801, 42, 232, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45836, 1243, 221, 3, 32, "Subsubsection"],
-Cell[46060, 1248, 228, 3, 35, "Text"],
-Cell[46291, 1253, 762, 12, 36, "Text"],
-Cell[47056, 1267, 799, 22, 129, "Input"],
-Cell[47858, 1291, 310, 7, 33, "Input"],
-Cell[48171, 1300, 360, 7, 43, "Text"],
-Cell[48534, 1309, 796, 17, 45, "Text"],
-Cell[49333, 1328, 883, 25, 148, "Input"],
-Cell[50219, 1355, 397, 10, 53, "Input"]
+Cell[47326, 1274, 221, 3, 40, "Subsubsection"],
+Cell[47550, 1279, 228, 3, 43, "Text"],
+Cell[47781, 1284, 762, 12, 45, "Text"],
+Cell[48546, 1298, 799, 22, 161, "Input"],
+Cell[49348, 1322, 310, 7, 41, "Input"],
+Cell[49661, 1331, 352, 5, 53, "Text"],
+Cell[50016, 1338, 796, 17, 56, "Text"],
+Cell[50815, 1357, 883, 25, 185, "Input"],
+Cell[51701, 1384, 397, 10, 66, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50665, 1371, 320, 6, 55, "Subsection"],
-Cell[50988, 1379, 671, 15, 41, "Input",
+Cell[52147, 1400, 312, 4, 68, "Subsection"],
+Cell[52462, 1406, 671, 15, 51, "Input",
  Evaluatable->False],
-Cell[51662, 1396, 465, 11, 66, "Input",
+Cell[53136, 1423, 465, 11, 82, "Input",
  Evaluatable->False],
-Cell[52130, 1409, 570, 13, 66, "Input",
+Cell[53604, 1436, 570, 13, 82, "Input",
  Evaluatable->False],
-Cell[52703, 1424, 338, 9, 41, "Input",
+Cell[54177, 1451, 338, 9, 51, "Input",
  Evaluatable->False]
 }, Open  ]]
 }, Open  ]],
-Cell[53068, 1437, 101, 1, 103, "Section"]
+Cell[54542, 1464, 101, 1, 128, "Section"]
 }, Open  ]]
 }
 ]
