@@ -74,4 +74,13 @@ mst3 = { \frac{ \sum_{i,j;i\neq{}j;i>j}^{k}{ \frac{ \sum_{s}^{mst(C_i\cup{}C_j).
 \end{equation}
 ただし、$k$ : クラスタ数、$C_i$ : クラスタ$i$、$C_i\cup{}C_j$ : クラスタ$i$とクラスタ$j$の要素の和集合、$mst(C_i\cup{}C_j)$ : 集合全体によるMST、$mst().PATH$ : パスの総数、$mst().P_s$ : MSTにおける$s$番目のパス、${}_{k}C_2$ : コンビネーション\{k,2\}。
 
+\section{指標8(mst7)}
+
+\begin{eqnarray}
+W  = mean(mean(mst_i)) \\
+B = \frac{1}{I(I-1)/2}  \sum_{i,j;i\neq{}j}^{I,J}{ \sum_{x,y}^{X_i,Y_j}{\frac{d(C_{ix},C_{jy})}{X_i\times{}Y_j}} }
+mst7 = W/B
+\end{eqnarray}
+ただし、$mean(mst_i)$ : 各クラスタのMSTのエッジ長平均、$I=J$、$C_{ix}$ : クラスタiのメンバーx。
+
 \end{document}
