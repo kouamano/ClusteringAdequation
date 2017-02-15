@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     55389,       1309]
-NotebookOptionsPosition[     52722,       1226]
-NotebookOutlinePosition[     53060,       1241]
-CellTagsIndexPosition[     53017,       1238]
+NotebookDataLength[     57248,       1374]
+NotebookOptionsPosition[     54351,       1283]
+NotebookOutlinePosition[     54689,       1298]
+CellTagsIndexPosition[     54646,       1295]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1220,12 +1220,69 @@ Cell[BoxData[
  RowBox[{"Get", "[", 
   "\"\</home/kamano/gitsrc/MATH_SCRIPT/SCRIPTS/Cluster+Distance_Operations.\
 txt\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.673680341426331*^9, 3.673680367346891*^9}}]
+ CellChangeTimes->{{3.673680341426331*^9, 3.673680367346891*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cls", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"3", ",", "3", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "3", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "3", ",", "4"}], "}"}]}], "}"}]}], 
+   "\[IndentingNewLine]", "}"}]}]], "Input",
+ CellChangeTimes->{{3.696140992512802*^9, 3.696141088061948*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "3", ",", "4"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.696141046669265*^9, 3.696141090112204*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WCSPowerWeighted", "[", "cls", "]"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.696140953230441*^9, 3.6961409763798513`*^9}, {
+  3.696141052267003*^9, 3.696141066570665*^9}}],
+
+Cell[BoxData["2.`"], "Output",
+ CellChangeTimes->{
+  3.696140978326964*^9, {3.696141059309684*^9, 3.696141095461688*^9}}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{765, 730},
-WindowMargins->{{0, Automatic}, {Automatic, 56}},
+WindowMargins->{{0, Automatic}, {Automatic, 84}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 27, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1308,7 +1365,15 @@ Cell[49956, 1163, 2197, 43, 61, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[52202, 1212, 284, 4, 65, "Section"],
-Cell[52489, 1218, 205, 4, 56, "Input"]
+Cell[52489, 1218, 205, 4, 56, "Input"],
+Cell[CellGroupData[{
+Cell[52719, 1226, 656, 20, 79, "Input"],
+Cell[53378, 1248, 560, 17, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53975, 1270, 212, 4, 34, "Input"],
+Cell[54190, 1276, 121, 2, 65, "Output"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
