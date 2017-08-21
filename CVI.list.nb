@@ -1,0 +1,606 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19062,        598]
+NotebookOptionsPosition[     16891,        518]
+NotebookOutlinePosition[     17486,        542]
+CellTagsIndexPosition[     17401,        537]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["CVI review", "Title",
+ CellChangeTimes->{{3.668319091531928*^9, 3.668319104510336*^9}}],
+
+Cell["JSIK 20160514-15", "Text",
+ CellChangeTimes->{{3.6683191166970577`*^9, 3.6683191398151913`*^9}, {
+  3.668320175971767*^9, 3.668320213895129*^9}, {3.6683202843570147`*^9, 
+  3.66832028894696*^9}}],
+
+Cell["\<\
+Criteria for selecting index:
+- has max/min value?
+- shift/scale independency
+- objection for many/few classes\
+\>", "Text",
+ CellChangeTimes->{{3.668320651506814*^9, 3.668320796504107*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Get", "[", 
+  "\"\</Users/amanokou/gitsrc/MATH_SCRIPT/SCRIPTS/ConnectiveClass.txt\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.668768485009293*^9, 3.668768507976684*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "compat"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Combinatorica Graph and Permutations functionality has \
+been superseded by preloaded functionality. The package now being loaded may \
+conflict with this. Please see the Compatibility Guide for details.\"\>"}]], \
+"Message", "MSG",
+ CellChangeTimes->{3.668768509017322*^9, 3.6687687854535646`*^9, 
+  3.6687689170434637`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"??", "subDMat"}]], "Input",
+ CellChangeTimes->{{3.668768519462281*^9, 3.668768523308045*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Global`subDMat", "Print", "PrintUsage",
+ CellChangeTimes->{3.668768790337697*^9},
+ CellTags->"Info3668801190-4656617"],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{
+         RowBox[{"subDMat", "[", 
+          RowBox[{"dmat_", ",", "members_"}], "]"}], ":=", 
+         RowBox[{"Transpose", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{
+            "dmat", "\[LeftDoubleBracket]", "members", 
+             "\[RightDoubleBracket]"}], "]"}], "\[LeftDoubleBracket]", 
+           "members", "\[RightDoubleBracket]"}], "]"}]}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[$CellContext`subDMat],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6687687904022703`*^9},
+ CellTags->"Info3668801190-4656617"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Score Function", "Section",
+ CellChangeTimes->{{3.668320343442019*^9, 3.6683203613978577`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Calinski - Harabasz index", "Section",
+ CellChangeTimes->{{3.668320408748692*^9, 3.668320425600505*^9}}],
+
+Cell["\<\
+http://jp.mathworks.com/help/stats/clustering.evaluation.\
+calinskiharabaszevaluation-class.html\
+\>", "Text",
+ CellChangeTimes->{{3.668320557621673*^9, 3.668320594675222*^9}}]
+}, Open  ]],
+
+Cell["Dunn index", "Section",
+ CellChangeTimes->{{3.668320506192025*^9, 3.6683205162761297`*^9}, {
+  3.668495401947323*^9, 3.668495405078433*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Silhouette index", "Section",
+ CellChangeTimes->{{3.6684953691354017`*^9, 3.668495397371666*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"li", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "5"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"5", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "6"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.668768020148788*^9, 3.668768049664404*^9}, {
+  3.6687682819883633`*^9, 3.6687682925882797`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.668768051632874*^9, 3.668768293289415*^9, 
+  3.668768366874816*^9, 3.668769157435817*^9, 3.668769286021619*^9, 
+  3.668771062927946*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"li", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "2", "}"}], ",", 
+       RowBox[{"{", "4", "}"}], ",", 
+       RowBox[{"{", "5", "}"}]}], "}"}], "&"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.668768319240608*^9, 3.668768332513007*^9}, {
+  3.668769280807856*^9, 3.668769283653688*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "2", "}"}], ",", 
+   RowBox[{"{", "4", "}"}], ",", 
+   RowBox[{"{", "5", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.668768332951249*^9, 3.6687691577781982`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dmat", "=", 
+  RowBox[{"Outer", "[", 
+   RowBox[{"EuclideanDistance", ",", "li", ",", "li", ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.668768203939376*^9, 3.6687682678467503`*^9}, {
+  3.668768305218144*^9, 3.668768314111747*^9}, {3.668768349219371*^9, 
+  3.668768350795677*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     SqrtBox["2"], ",", 
+     SqrtBox["13"], ",", 
+     SqrtBox["17"], ",", 
+     SqrtBox["17"]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SqrtBox["2"], ",", "0", ",", 
+     SqrtBox["5"], ",", "3", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SqrtBox["13"], ",", 
+     SqrtBox["5"], ",", "0", ",", 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}], ",", 
+     SqrtBox["2"]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SqrtBox["17"], ",", "3", ",", 
+     RowBox[{"2", " ", 
+      SqrtBox["2"]}], ",", "0", ",", 
+     RowBox[{"3", " ", 
+      SqrtBox["2"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     SqrtBox["17"], ",", "3", ",", 
+     SqrtBox["2"], ",", 
+     RowBox[{"3", " ", 
+      SqrtBox["2"]}], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.668768233252428*^9, 3.668768371368384*^9}, 
+   3.668769157837187*^9, 3.668769288604472*^9, 3.668771065616201*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mateAvarage", "[", 
+   RowBox[{"dmat_", ",", "clusterdID_", ",", "i_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"cl", ",", "self", ",", "others"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"cl", "=", 
+      RowBox[{"clusterdID", "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"Position", "[", 
+          RowBox[{"clusterdID", ",", "i"}], "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"self", "=", "i"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"others", "=", 
+      RowBox[{"Complement", "[", 
+       RowBox[{"cl", ",", 
+        RowBox[{"{", "self", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Length", "[", "others", "]"}], "\[Equal]", "0"}], ",", "0", 
+       ",", 
+       RowBox[{
+        RowBox[{"Tr", "[", 
+         RowBox[{"dmat", "[", 
+          RowBox[{"[", 
+           RowBox[{"self", ",", "others"}], "]"}], "]"}], "]"}], "/", 
+        RowBox[{"Length", "[", "others", "]"}]}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.66876955516371*^9, 3.668769653724617*^9}, {
+  3.6687697579962807`*^9, 3.668769857178726*^9}, {3.6687698959310904`*^9, 
+  3.6687699203236103`*^9}, {3.668769959020063*^9, 3.6687700917837887`*^9}, {
+  3.6687718444556828`*^9, 3.668771870728715*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extAvarages", "[", 
+   RowBox[{"dmat_", ",", "clusterdID_", ",", "i_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"selfCL", ",", "otherCLs", ",", "self", ",", "avarageDist"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"self", "=", "i"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"selfCL", "=", 
+      RowBox[{
+       RowBox[{"Position", "[", 
+        RowBox[{"clusterdID", ",", "i"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"otherCLs", "=", 
+      RowBox[{"Delete", "[", 
+       RowBox[{"clusterdID", ",", "selfCL"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mean", "[", 
+         RowBox[{
+          RowBox[{"dmat", "[", 
+           RowBox[{"[", "self", "]"}], "]"}], "[", 
+          RowBox[{"[", "#", "]"}], "]"}], "]"}], "&"}], ",", "otherCLs"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.668770534909108*^9, 3.6687706055590487`*^9}, {
+  3.668770682208664*^9, 3.66877071772678*^9}, {3.668770756895975*^9, 
+  3.668770800650371*^9}, {3.668770832088673*^9, 3.668771019138237*^9}, {
+  3.668771085152717*^9, 3.668771203780002*^9}, {3.66877260545327*^9, 
+  3.6687726076663322`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"minExtAvarage", "[", 
+   RowBox[{"dmat_", ",", "clusterdID_", ",", "i_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"selfCL", ",", "otherCLs", ",", "self", ",", "avarageDist"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"self", "=", "i"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"selfCL", "=", 
+      RowBox[{
+       RowBox[{"Position", "[", 
+        RowBox[{"clusterdID", ",", "i"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"otherCLs", "=", 
+      RowBox[{"Delete", "[", 
+       RowBox[{"clusterdID", ",", "selfCL"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Min", "[", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Mean", "[", 
+          RowBox[{
+           RowBox[{"dmat", "[", 
+            RowBox[{"[", "self", "]"}], "]"}], "[", 
+           RowBox[{"[", "#", "]"}], "]"}], "]"}], "&"}], ",", "otherCLs"}], 
+       "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.668771220499411*^9, 3.6687712481889477`*^9}, {
+  3.6687724824021683`*^9, 3.668772515339974*^9}, {3.668772551158536*^9, 
+  3.668772557404845*^9}, {3.668772613977853*^9, 3.668772632512123*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SI", "[", 
+   RowBox[{"dmat_", ",", "clusterdID_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"IDs", ",", "listA", ",", "listB", ",", "n"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"IDs", "=", 
+      RowBox[{"Flatten", "[", "clusterdID", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"n", "=", 
+      RowBox[{"Length", "[", "IDs", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"listA", "=", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"mateAvarage", "[", 
+          RowBox[{"dmat", ",", "clusterdID", ",", "#"}], "]"}], "&"}], ",", 
+        "IDs"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"listB", "=", 
+      RowBox[{
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"minExtAvarage", "[", 
+           RowBox[{"dmat", ",", "clusterdID", ",", "#"}], "]"}], "&"}], ",", 
+         "IDs"}], "]"}], "//", "N"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Mean", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"listB", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "-", 
+           RowBox[{"listA", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "/", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"listB", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], ",", 
+           RowBox[{"listA", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", 
+          RowBox[{"Length", "[", "IDs", "]"}]}], "}"}]}], "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.66877132552919*^9, 3.668771447197112*^9}, {
+  3.668771493519019*^9, 3.668771625225452*^9}, {3.668771702985634*^9, 
+  3.6687717667612963`*^9}, {3.6687718992569933`*^9, 3.668772211710329*^9}, {
+  3.66877224285331*^9, 3.668772271556285*^9}, {3.66877265743009*^9, 
+  3.668772698985722*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SI", "[", 
+  RowBox[{"dmat", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", "5", "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6687714654534893`*^9, 3.668771486374282*^9}, {
+  3.668771638694702*^9, 3.6687716601718884`*^9}, {3.668771951818995*^9, 
+  3.6687719570317163`*^9}}],
+
+Cell[BoxData["0.3599393384070563`"], "Output",
+ CellChangeTimes->{
+  3.6687714963491373`*^9, 3.6687715623196*^9, {3.66877162900751*^9, 
+   3.668771660708993*^9}, {3.6687716968599567`*^9, 3.668771719662244*^9}, 
+   3.6687717711023703`*^9, 3.668771874727674*^9, {3.668771942217311*^9, 
+   3.668771953831737*^9}, 3.668771993666706*^9, 3.668772099486068*^9, 
+   3.668772133142789*^9, {3.6687722043252974`*^9, 3.668772214673349*^9}, {
+   3.668772252372993*^9, 3.668772276092342*^9}, {3.668772642019785*^9, 
+   3.668772665665031*^9}, 3.6687727042373743`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"extAvarages", "[", 
+  RowBox[{"dmat", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", "5", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "}"}], ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.668770734280184*^9, 3.668770749228672*^9}, 
+   3.668771209694531*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SqrtBox["17"], ",", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SqrtBox["13"], "+", 
+      SqrtBox["17"]}], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.668770739243642*^9, 3.668770762668969*^9}, 
+   3.668770804173048*^9, {3.6687709718162127`*^9, 3.668771031445313*^9}, {
+   3.668771073878437*^9, 3.6687711043608103`*^9}, {3.668771154839281*^9, 
+   3.668771210600484*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"minExtAvarage", "[", 
+  RowBox[{"dmat", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", "5", "}"}]}], "}"}], ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.668770734280184*^9, 3.668770749228672*^9}, 
+   3.668771209694531*^9, {3.6687712582876577`*^9, 3.66877126441199*^9}, {
+   3.668772430784872*^9, 3.6687724637715607`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", 
+  SqrtBox["2"]}]], "Output",
+ CellChangeTimes->{
+  3.668771265731827*^9, 3.668772431430785*^9, 3.668772464570539*^9, {
+   3.668772496453845*^9, 3.668772520710374*^9}, 3.668772562321245*^9, {
+   3.668772620892477*^9, 3.668772636952693*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mateAvarage", "[", 
+  RowBox[{"dmat", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}]}], "}"}], ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.668769671376051*^9, 3.668769688250434*^9}, {
+  3.6687700977572308`*^9, 3.668770099130022*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    SqrtBox["2"], "+", 
+    SqrtBox["17"]}], ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.6687696889312468`*^9, 3.6687697664504223`*^9, {3.668769806349042*^9, 
+   3.6687698602657623`*^9}, {3.668769976200177*^9, 3.668769991004616*^9}, 
+   3.668770027510478*^9, {3.668770061866048*^9, 3.668770100094225*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1065, 799},
+WindowMargins->{{3, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (2014\:5e747\
+\:67089\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3668801190-4656617"->{
+  Cell[1932, 67, 124, 2, 40, "Print",
+   CellTags->"Info3668801190-4656617"],
+  Cell[2059, 71, 1128, 30, 22, "Print",
+   CellTags->"Info3668801190-4656617"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3668801190-4656617", 17219, 529}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 93, 1, 92, "Title"],
+Cell[676, 25, 201, 3, 30, "Text"],
+Cell[880, 30, 200, 6, 87, "Text"],
+Cell[CellGroupData[{
+Cell[1105, 40, 197, 4, 28, "Input"],
+Cell[1305, 46, 448, 10, 41, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1790, 61, 117, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[1932, 67, 124, 2, 40, "Print",
+ CellTags->"Info3668801190-4656617"],
+Cell[2059, 71, 1128, 30, 22, "Print",
+ CellTags->"Info3668801190-4656617"]
+}, Open  ]]
+}, Open  ]],
+Cell[3214, 105, 101, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[3340, 110, 110, 1, 50, "Section"],
+Cell[3453, 113, 186, 4, 30, "Text"]
+}, Open  ]],
+Cell[3654, 120, 146, 2, 64, "Section"],
+Cell[CellGroupData[{
+Cell[3825, 126, 103, 1, 50, "Section"],
+Cell[CellGroupData[{
+Cell[3953, 131, 501, 15, 28, "Input"],
+Cell[4457, 148, 506, 15, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5000, 168, 370, 11, 28, "Input"],
+Cell[5373, 181, 221, 6, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5631, 192, 316, 7, 28, "Input"],
+Cell[5950, 201, 988, 34, 61, "Output"]
+}, Open  ]],
+Cell[6953, 238, 1537, 39, 131, "Input"],
+Cell[8493, 279, 1408, 34, 131, "Input"],
+Cell[9904, 315, 1356, 33, 131, "Input"],
+Cell[11263, 350, 2075, 54, 148, "Input"],
+Cell[CellGroupData[{
+Cell[13363, 408, 442, 12, 28, "Input"],
+Cell[13808, 422, 552, 8, 62, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14397, 435, 383, 11, 28, "Input"],
+Cell[14783, 448, 461, 13, 47, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15281, 466, 484, 12, 28, "Input"],
+Cell[15768, 480, 273, 6, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16078, 491, 382, 10, 28, "Input"],
+Cell[16463, 503, 388, 10, 47, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
