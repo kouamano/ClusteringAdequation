@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12792,        402]
-NotebookOptionsPosition[     11095,        335]
-NotebookOutlinePosition[     11461,        351]
-CellTagsIndexPosition[     11418,        348]
+NotebookDataLength[     17220,        521]
+NotebookOptionsPosition[     15407,        451]
+NotebookOutlinePosition[     15771,        467]
+CellTagsIndexPosition[     15728,        464]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -166,6 +166,9 @@ Cell[CellGroupData[{
 Cell["Program", "Subsection",
  CellChangeTimes->{{3.609059120501997*^9, 3.6090591338673077`*^9}, {
   3.610262484193166*^9, 3.610262501620927*^9}}],
+
+Cell["Dunn' s delta ?", "Text",
+ CellChangeTimes->{{3.7262784103501263`*^9, 3.7262784307585297`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -328,13 +331,126 @@ Cell[BoxData[
 Cell[BoxData[
  SqrtBox["3"]], "Output",
  CellChangeTimes->{{3.725496325093008*^9, 3.725496350086141*^9}}]
-}, Open  ]]
+}, Open  ]],
+
+Cell["Or another delta ?", "Text",
+ CellChangeTimes->{{3.7262784103501263`*^9, 3.7262784565390873`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "cGDunn", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"connectiveClass`Gdelta", "[", "3", "]"}], "[", 
+      RowBox[{"cls_", ",", "medoid_", ",", "dshortMatZeroself_"}], "]"}], " ", 
+     RowBox[{"(*", 
+      RowBox[{"Delta3", " ", "in", " ", 
+       RowBox[{"Patt", ".", "Rec"}], ".2013", " ", "by", " ", "Olatz"}], 
+      "*)"}], ":=", 
+     RowBox[{"2", " ", 
+      RowBox[{
+       RowBox[{"Tr", "[", 
+        RowBox[{
+         RowBox[{"dshortMatZeroself", "[", 
+          RowBox[{"[", "medoid", "]"}], "]"}], "[", 
+         RowBox[{"[", "cls", "]"}], "]"}], "]"}], "/", 
+       RowBox[{"Length", "[", "cls", "]"}]}]}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"connectiveClass`Gd", "[", "3", "]"}], "[", 
+      RowBox[{"clS_", ",", "clT_", ",", "dshortMatZeroself_"}], "]"}], " ", 
+     RowBox[{"(*", 
+      RowBox[{"delta3", " ", "in", " ", 
+       RowBox[{"Patt", ".", "Rec"}], ".2013", " ", "by", " ", "Olatz"}], 
+      "*)"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "coords", "}"}], ",", 
+       RowBox[{
+        RowBox[{"coords", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{"Outer", "[", 
+            RowBox[{"List", ",", "clS", ",", "clT", ",", "1"}], "]"}], ",", 
+           "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Tr", "[", 
+           RowBox[{"Flatten", "[", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"dshortMatZeroself", "[", 
+                RowBox[{"[", "#", "]"}], "]"}], "&"}], ",", "coords"}], "]"}],
+             "]"}], "]"}], "/", 
+          RowBox[{"Length", "[", "clS", "]"}]}], "/", 
+         RowBox[{"Length", "[", "clT", "]"}]}]}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"cGDunn", "[", 
+       RowBox[{"3", ",", "3"}], "]"}], "[", 
+      RowBox[{"dshortMatZeroself_", ",", "cls_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"numCLs", ",", "medoidIDs", ",", "maxGdelta", ",", "subset"}],
+         "}"}], ",", 
+       RowBox[{
+        RowBox[{"numCLs", "=", 
+         RowBox[{"Length", "[", "cls", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"medoidIDs", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"orgIndexFromMedoidParCL", "[", 
+           RowBox[{"cls", ",", 
+            RowBox[{"findMedoidsParCL", "[", 
+             RowBox[{"dshortMatZeroself", ",", "cls"}], "]"}]}], "]"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"maxGdelta", "=", 
+         RowBox[{"Max", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"connectiveClass`Gdelta", "[", "3", "]"}], "[", 
+             RowBox[{
+              RowBox[{"cls", "[", 
+               RowBox[{"[", "n", "]"}], "]"}], ",", 
+              RowBox[{"medoidIDs", "[", 
+               RowBox[{"[", "n", "]"}], "]"}], ",", "dshortMatZeroself"}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "numCLs"}], "}"}]}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"subset", "=", 
+         RowBox[{"Subsets", "[", 
+          RowBox[{"cls", ",", 
+           RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Min", "[", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"connectiveClass`Gd", "[", "3", "]"}], "[", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], ",", "dshortMatZeroself"}], 
+              "]"}], "&"}], ",", "subset"}], "]"}], "]"}], "/", 
+         "maxGdelta"}]}]}], "]"}]}], ";"}], "\n"}]}]], "Input",
+ CellChangeTimes->{{3.72627823461869*^9, 3.726278234634742*^9}}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1045, 592},
-WindowMargins->{{72, Automatic}, {Automatic, 10}},
+WindowMargins->{{7, Automatic}, {Automatic, 7}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (2014\:5e747\
 \:67089\:65e5)",
 StyleDefinitions->"Default.nb"
@@ -386,21 +502,24 @@ Cell[3981, 154, 89, 1, 64, "Section"],
 Cell[4073, 157, 229, 4, 30, "Text"],
 Cell[CellGroupData[{
 Cell[4327, 165, 146, 2, 44, "Subsection"],
-Cell[4476, 169, 1072, 18, 49, "Input"],
-Cell[5551, 189, 1350, 29, 97, "Input"],
-Cell[6904, 220, 3159, 72, 165, "Input"],
+Cell[4476, 169, 101, 1, 30, "Text"],
+Cell[4580, 172, 1072, 18, 49, "Input"],
+Cell[5655, 192, 1350, 29, 97, "Input"],
+Cell[7008, 223, 3159, 72, 165, "Input"],
 Cell[CellGroupData[{
-Cell[10088, 296, 192, 4, 28, "Input"],
-Cell[10283, 302, 82, 1, 28, "Output"]
+Cell[10192, 299, 192, 4, 28, "Input"],
+Cell[10387, 305, 82, 1, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10402, 308, 245, 5, 28, "Input"],
-Cell[10650, 315, 70, 1, 28, "Output"]
+Cell[10506, 311, 245, 5, 28, "Input"],
+Cell[10754, 318, 70, 1, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10757, 321, 178, 4, 28, "Input"],
-Cell[10938, 327, 105, 2, 33, "Output"]
-}, Open  ]]
+Cell[10861, 324, 178, 4, 28, "Input"],
+Cell[11042, 330, 105, 2, 33, "Output"]
+}, Open  ]],
+Cell[11162, 335, 104, 1, 30, "Text"],
+Cell[11269, 338, 4098, 108, 250, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
